@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kenneth's E-Commerce Demo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+    }
+    header, footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav.category-nav {
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    nav.category-nav a {
+      margin: 0 10px;
+      font-weight: bold;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .products, .cart-section, .payment-section, .tracking-section, .receipt-section {
+      padding: 20px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 8px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product {
+      background-color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      text-align: center;
+      max-width: 220px;
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .btn {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    input, select {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .confirmation-box, .receipt-box {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f5e9;
+      border-left: 5px solid #4caf50;
+      font-weight: bold;
+      display: none;
+    }
+    .ok-btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    footer .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+    }
+    .footer-icons div {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+    .footer-icons div::before {
+      content: '👤';
+      display: block;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    .footer-icons div:nth-child(2)::before { content: '🛒'; }
+    .footer-icons div:nth-child(3)::before { content: '❓'; }
+    .footer-icons div:nth-child(4)::before { content: '⚙️'; }
+
+    @media (max-width: 600px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+      .search-bar input {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Kenneth's E-Commerce Demo</h1>
+  <p>Shop smart. Pay with MPesa.</p>
+</header>
+
+<nav class="category-nav">
+  <a href="#shoes">Shoes</a>
+  <a href="#bags">Bags</a>
+  <a href="#watches">Watches</a>
+  <a href="#phones">Phones</a>
+  <a href="#laptops">Laptops</a>
+  <a href="#books">Books</a>
+</nav>
+
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()" />
+</div>
+
+<section class="products" id="shoes">
+  <h2>Shoes</h2>
+  <div class="product" data-name="Women’s Sneakers">
+    <img src="bn.jpg" alt="Sneakers">
+    <h4>Women’s Sneakers</h4>
+    <p>Ksh 3,456</p>
+    <button class="btn" onclick="addToCart('Women’s Sneakers', 3456)">Add to Cart</button>
+  </div>
+</section>
+
+<section class="products" id="bags">
+  <h2>Bags</h2>
+  <div class="product" data-name="Leather Handbag">
+    <img src="df.jpg" alt="Handbag">
+    <h4>Leather Handbag</h4>
+    <p>Ksh 5,000</p>
+    <button class="btn" onclick="addToCart('Leather Handbag', 5000)">Add to Cart</button>
+  </div>
+</section>
+
+<section class="products" id="watches">
+  <h2>Watches</h2>
+  <div class="product" data-name="Men’s Watch">
+    <img src="w7.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w6.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w2.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w7.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w5.jpg" alt="Watch">
+    
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w6.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w7.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+     <img src="w8.jpg" alt="Watch">
+    
+    <h4>Men’s Watch</h4>
+    <p>Ksh 10,000</p>
+    <button class="btn" onclick="addToCart('Men’s Watch', 10000)">Add to Cart</button>
+  </div>
+</section>
+
+<section class="products" id="phones">
+  <h2>Phones</h2>
+  <div class="product" data-name="Bluetooth Speaker">
+    <img src="gh.jpg" alt="Speaker">
+    <h4>Bluetooth Speaker</h4>
+    <p>Ksh 2,500</p>
+    <button class="btn" onclick="addToCart('Bluetooth Speaker', 2500)">Add to Cart</button>
+  </div>
+</section>
+
+<section class="cart-section">
+  <h2>Your Cart</h2>
+  <ul class="cart-items" id="cart-items"></ul>
+  <p><strong>Total: Ksh <span id="total">0</span></strong></p>
+</section>
+
+<section class="payment-section">
+  <h2>🧾 Checkout & Pay</h2>
+  <div class="payment-box">
+    <form id="payment-form">
+      <label for="customer-name">Your Name</label>
+      <input type="text" id="customer-name" required />
+
+      <label for="user-phone">Your MPesa Number</label>
+      <input type="text" id="user-phone" required />
+
+      <label for="mpesa-number">Select Business Line</label>
+      <select id="mpesa-number" required>
+        <option value="">-- Choose MPesa Number --</option>
+        <option value="0748828544">Main Line</option>
+        <option value="4135434">Buy Goods</option>
+        <option value="247247">Pay bill</option>
+      </select>
+
+      <button class="btn" type="submit">💳 Confirm Payment</button>
+    </form>
+
+    <div id="payment-response" class="confirmation-box"></div>
+    <div id="receipt" class="receipt-box"></div>
+    <button class="ok-btn" onclick="window.print()">🖨️ Print Receipt</button>
+  </div>
+</section>
+
+<section class="tracking-section">
+  <h2>📦 Track Your Order</h2>
+  <input type="text" id="order-id" placeholder="Enter Order ID" />
+  <button class="btn" onclick="trackOrder()">Track</button>
+  <div id="tracking-result" style="margin-top:10px; font-weight:bold;"></div>
+</section>
+
+<footer>
+  <div class="footer-icons">
+    <div>Account</div>
+    <div>Cart</div>
+    <div>Help</div>
+    <div>Settings</div>
+  </div>
+  <p style="margin-top: 20px;">&copy; 2025 Kenneth's E-Commerce Demo. All rights reserved.</p>
+</footer>
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const totalDisplay = document.getElementById('total');
+    cartItems.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.name} - Ksh ${item.price}`;
+      cartItems.appendChild(li);
+      total += item.price;
+    });
+    totalDisplay.textContent = total;
+  }
+
+  document.getElementById('payment-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('customer-name').value;
+    const userPhone = document.getElementById('user-phone').value;
+    const businessLine = document.getElementById('mpesa-number').value;
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+    if (!name || !userPhone || !businessLine || cart.length === 0) {
+      alert('Please fill all fields and add products to cart.');
+      return;
+    }
+
+    const message = `
+      ✅ Hello ${name}, please send Ksh ${total} to MPesa number ${businessLine}.<br>
+      📱 Your payment will be confirmed from <strong>${userPhone}</strong>.<br><br>
+      🔐 <strong>Enter your MPesa PIN on your phone to complete the payment.</strong>
+    `;
+    document.getElementById('payment-response').innerHTML = message;
+    document.getElementById('payment-response').style.display = 'block';
+
+    const receipt = `
+      <h3>🧾 Receipt</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Phone:</strong> ${userPhone}</p>
+      <p><strong>Business Line:</strong> ${businessLine}</p>
+      <p><strong>Items:</strong></p>
+      <ul>${cart.map(item => `<li>${item.name} - Ksh ${item.price}</li>`).join('')}</ul>
+      <p><strong>Total:</strong> Ksh ${total}</p>
+    `;
+    document.getElementById('receipt').innerHTML = receipt;
+    document.getElementById('receipt').style.display = 'block';
+  });
+
+  function dismissMessage() {
+    document.getElementById('payment-response').style.display = 'none';
+    document.getElementById('receipt').style.display = 'none';
+  }
+
+  function trackOrder() {
+    const orderId = document.getElementById('order-id').value.trim();
+    const result = document.getElementById('tracking-result');
+    if (!orderId) {
+      result.textContent = 'Please enter a valid Order ID.';
+      return;
+    }
+    const statuses = ['Processing', 'Shipped', 'Out for delivery', 'Delivered'];
+    const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+    result.textContent = `Order ${orderId} status: ${randomStatus}`;
+  }
+
+  function filterProducts() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+      const name = product.getAttribute('data-name').toLowerCase();
+      product.style.display = name.includes(input) ? 'block' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>

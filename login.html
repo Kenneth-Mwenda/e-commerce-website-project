@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My E-Commerce Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #333; color: white; padding: 1em; text-align: center; }
+    .products { display: flex; flex-wrap: wrap; padding: 1em; gap: 1em; justify-content: center; }
+    .product { border: 1px solid #ccc; padding: 1em; width: 200px; text-align: center; }
+    .product img { width: 100%; height: auto; }
+    .cart { position: fixed; top: 1em; right: 1em; background: #f8f8f8; padding: 1em; border: 1px solid #ccc; }
+    button { background: #28a745; color: white; border: none; padding: 0.5em; cursor: pointer; }
+    button:hover { background: #218838; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My E-Commerce Store</h1>
+</header>
+
+<div class="cart">
+  <h3>Shopping Cart</h3>
+  <ul id="cart-items"></ul>
+</div>
+
+<div class="products">
+  <div class="product">
+    <img src="mwexi.jpg" alt="Product 1"/>
+    <a href="product.html">
+    <h4>Products</h4>
+    <p>$10.00</p>
+    <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+    </a>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>ksh 5000.00</p>
+    <button onclick="addToCart('Product 2', 5000)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 3">
+    <h4>Product 2</h4>
+    <p>ksh 1000.00</p>
+    <button onclick="addToCart('Product 3', 1000)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 4">
+    <h4>Product 2</h4>
+    <p>ksh15.00</p>
+    <button onclick="addToCart('Product 4', 80)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <div class="product">
+    <img src="ken.jpg" alt="Product 2">
+    <h4>Product 2</h4>
+    <p>$15.00</p>
+    <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+  </div>
+  <!-- Add more products as needed -->
+</div>
+<form action="login.html">
+  <label for="user name">user name</label>
+  <input type="text" name="text" value="name" placeholder="enter your name" required>
+</form>
+
+<script>
+  const cartItems = document.getElementById('cart-items');
+
+  function addToCart(name, price) {
+    const item = document.createElement('li');
+    item.textContent = `${name} - $${price.toFixed(2)}`;
+    cartItems.appendChild(item);
+  }
+</script>
+
+</body>
+</html>
